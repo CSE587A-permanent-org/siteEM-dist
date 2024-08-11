@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "siteEM"
+version = "2.0.0"
+description = "CSE587 Site EM Assignment"
+authors = ["chase mateusiak <chase.mateusiak@gmail.com>"]
+license = "GPL-3.0-or-later"
+readme = "README.md"
+packages = [{include = "siteEM"},
+			{include = "siteEM/utils"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+biopython = "^1.81"
+# TODO revert to github version of utils before pushing
+# Uncomment the line below and comment the one below that to use local copy of utils
+# Opposite to use the remote copy.
+# cse587autils = { path = "../cse587Autils", develop = true }
+cse587autils = { git = "https://github.com/CSE587A-permanent-org/cse587Autils.git" }
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.25.0"
+autopep8 = "^2.0.2"
+flake8 = "^6.0.0"
+gradescope-utils = "^0.5.0"
+
+[build]
+include = ["siteEM/data/*"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
